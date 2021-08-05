@@ -102,7 +102,6 @@ namespace Lang_UWP_2
                     "!",
                     " "
 
-
                         }, StringSplitOptions.None);
                 int Key = 1;
 
@@ -110,7 +109,7 @@ namespace Lang_UWP_2
 
                 foreach (string B in arr)
                 {
-                    sw.WriteLine("\n" + Key++ + ") " + B);
+                    sw.WriteLine(Key++ + ") " + B);
                 }
                 sw.Close();
 
