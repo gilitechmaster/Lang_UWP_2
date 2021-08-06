@@ -105,8 +105,6 @@ namespace Lang_UWP_2
                         }, StringSplitOptions.None);
                 int Key = 1;
 
-                sw.WriteLine("====자연어처리==== \n");
-
                 foreach (string B in arr)
                 {
                     sw.WriteLine(Key++ + ") " + B);
