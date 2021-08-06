@@ -92,7 +92,7 @@ namespace Lang_UWP_2
                 StreamWriter sw = new StreamWriter(filename, true);
                 string[] arr = note.Text.Split(new string[]{
 
-                    ". ",  //순차처리하므로 ". "를 앞에해두어야 한다.
+                    ". ",  // 순차처리하므로 ". "를 앞에해두어야 한다.
                     ".",
                     ", ",
                     ",",
@@ -103,20 +103,19 @@ namespace Lang_UWP_2
                     " "
 
                         }, StringSplitOptions.None);
-                //int Key = 1;
-
+                
                 foreach (string B in arr)
                 {
-                    //sw.WriteLine(Key++ + ") " + B); //key값은 삭제하도록 한다.
-                    sw.WriteLine(B);
+                    sw.WriteLine("                                      " + B); // 원본을 출력한다.
 
                     if (B.EndsWith("야") == true)
                         sw.WriteLine("{0}", B
                             .Replace("하여야", "\n" + "하여야")
                             );
+
                     //하여야 = n% = 불확정, 시간불확정
                     //100% = 확정 = dry = 진리
-                    
+
                 }
                 sw.Close();
 
