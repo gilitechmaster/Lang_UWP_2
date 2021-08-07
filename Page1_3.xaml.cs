@@ -59,6 +59,7 @@ namespace Lang_UWP_2
                     if (B.Contains("\n")  // replace로 2차처리
                         )
                         sw.WriteLine("{0}", B
+                          .Replace(" ", "")
                           .Replace("\n", "")
                           );
 
