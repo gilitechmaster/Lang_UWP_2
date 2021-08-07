@@ -1,6 +1,4 @@
-using Lang_UWP_2;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Xamarin.Forms;
 
@@ -15,7 +13,7 @@ namespace Lang_UWP_2
         {
             InitializeComponent();
         }
-        async void OnSaveButtonClicked(object sender, EventArgs e)
+        async void OnSaveButtonClicked(object sender, EventArgs e) //저장버튼 누르면
         {
             var note = (Note)BindingContext;
 
@@ -29,9 +27,9 @@ namespace Lang_UWP_2
                 File.WriteAllText(note.Filename, note.Text);
             }
             await Navigation.PopAsync();
-        }//저장버튼 누르면
+        }
 
-        async void OnCalc1ButtonClicked(object sender, EventArgs e)
+        async void OnCalc1ButtonClicked(object sender, EventArgs e) // 조합버튼
         {
             var note = (Note)BindingContext;
 
@@ -46,9 +44,12 @@ namespace Lang_UWP_2
                 var filename = Path.Combine(App.FolderPath, $"{Path.GetRandomFileName()}.notes.txt");
                 File.WriteAllText(note.Filename, note.Text);
                 StreamWriter sw = new StreamWriter(filename, true);
+
+                //AAAAAAAAAA
+
                 string[] arr = note.Text.Split(new string[]{
 
-                "."
+                "." // .dot을 없애고 단나눔
                 
                 // 왜 split으로 조합하고있는지?
                 // format 등 다른 sting 클래스에 메서드를 찾자.
@@ -62,19 +63,20 @@ namespace Lang_UWP_2
                 {
 
                     //if (B.Contains(".")
-                        //)
-                        //sw.WriteLine("{0}", B
-                          //.Replace(".", "")
-                          //.Replace("\n", "")
-                          //);
+                    //)
+                    //sw.WriteLine("{0}", B
+                    //.Replace(".", "")
+                    //.Replace("\n", "")
+                    //);
 
+                    //split로 단나눔된 결과에서 contains로 조건조회 후 replace
                     if (B.Contains("\n")) // 자석착으로 .\nA -> .A
                         sw.WriteLine("{0}", B
-                           .Replace(" ", "")
-                          .Replace("\n", "")
+                          .Replace(" ", "") // 자석착은 실패이므로 
+                          .Replace("\n", "") //AAAAAAAAAA 부터 AAAAAAAAAA 까지 재작업해야함
                           );
 
-                }
+                }  //AAAAAAAAAA
 
                 sw.Close();
 
@@ -83,11 +85,8 @@ namespace Lang_UWP_2
 
             await Navigation.PopAsync();
         }
-        //조합버튼 누르면
-        //웹에서 문서를 수집하면, 어수선한 글이 많아서
-        //조합을 먼저한 이후에 분해한다.
 
-        async void OnCalc2ButtonClicked(object sender, EventArgs e)
+        async void OnCalc2ButtonClicked(object sender, EventArgs e) // 분해버튼
         {
             var note = (Note)BindingContext;
 
@@ -116,7 +115,7 @@ namespace Lang_UWP_2
                     " "
 
                         }, StringSplitOptions.None);
-                
+
                 foreach (string B in arr)
                 {
                     //sw.WriteLine("                                      " + B); // 원본을 출력한다.
@@ -136,9 +135,9 @@ namespace Lang_UWP_2
             }
 
             await Navigation.PopAsync();
-        }//분해버튼 누르면
+        }
 
-        async void OnDeleteButtonClicked(object sender, EventArgs e)
+        async void OnDeleteButtonClicked(object sender, EventArgs e) // 삭제버튼
         {
             var note = (Note)BindingContext;
             if (File.Exists(note.Filename))
@@ -146,6 +145,6 @@ namespace Lang_UWP_2
                 File.Delete(note.Filename);
             }
             await Navigation.PopAsync();
-        }//삭제버튼 누르면
+        }
     }
 }
