@@ -7,6 +7,7 @@
     
         <Editor Placeholder="텍스트 입력 하세요!"
                 Text="{Binding Text}"
+                FontSize="20"
                 HeightRequest="630"/>
 
         <Grid>
