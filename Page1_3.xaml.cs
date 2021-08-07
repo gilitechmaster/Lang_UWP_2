@@ -100,6 +100,7 @@ namespace Lang_UWP_2
                     "?",
                     "! ",
                     "!",
+                    "·", // 법률문서에 사용되는 기호
                     " "
 
                         }, StringSplitOptions.None);
