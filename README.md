@@ -1,5 +1,5 @@
 # Lang_UWP_2
-Page1.xaml.cs가 메인페이지<p><p><p>
+Page1.xaml.cs가 메인페이지<p>
 Page1_2.xaml.cs // Lang6(android)에서 파생, UWP로 포팅하였다.<p>
 Page1_1.xaml.cs // 1_2에서 파생, 구조단순화하여 기호만소거한다.<p>
 Page1_3.xaml.cs // 1_1에서 파생, 시간불확정성어휘를 수집한다.<p>
